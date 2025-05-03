@@ -1,0 +1,129 @@
+.hidden-input {
+    display: none;
+}
+
+.icon-check {
+    color: white;
+    font-size: 70px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 100;
+    background-color: white;
+    background-image: url('../../Assets/Sticky_Icons/message.png');
+    background-position: center;
+    background-size: contain;
+    height: 70px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s;
+}
+
+.icons-div {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(0%, 0%);
+    font-size: 2em;
+    border-radius: 50%;
+    z-index: 99;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 75, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    opacity: 0;
+    padding: 18px;
+    color: white;
+}
+
+#chk:checked~.icons-div-1 {
+    background-color: #25D366;
+    transform: translateY(-3em) translateX(-0.1em);
+    opacity: 1;
+    transition-delay: .2s;
+}
+
+#chk:checked~.icons-div-2 {
+    background-color: #000;
+    transform: translateY(-6em) translateX(-0.1em);
+    opacity: 1;
+    transition-delay: .2s;
+}
+
+#chk:checked~.icons-div-3 {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    transform: translateY(-9em) translateX(-0.1em);
+    opacity: 1;
+    transition-delay: .2s;
+}
+
+#chk:checked~.icon-check {
+    background-image: url('../../Assets/Sticky_Icons/cross.png');
+}
+
+@media only screen and (max-width:576px) {
+    .icon-check {
+        height: 60px;
+        width: 60px;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .icons-div {
+        position: fixed;
+        bottom: 0px;
+        right: 7px;
+        font-size: 2em;
+        padding: 15px;
+    }
+}
+
+.scroll-to-bottom {
+    position: fixed;
+    right: 49%;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 50%;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    animation: vibrate 1s infinite;
+    animation-delay: 5s;
+    /* Vibration animation */
+}
+
+@keyframes vibrate {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-5px);
+    }
+
+    40% {
+        transform: translateX(5px);
+    }
+
+    60% {
+        transform: translateX(-5px);
+    }
+
+    80% {
+        transform: translateX(5px);
+    }
+}

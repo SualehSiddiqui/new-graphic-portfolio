@@ -1,0 +1,20 @@
+.svg-main-div {
+    height: 60%;
+    width: 100%;
+    left: 0;
+    line-height: 0;
+    overflow: hidden;
+    position: absolute;
+    transform: scaleY(-1);
+}
+
+.svg-main-div>svg {
+    color: white;
+    display: block;
+    height: 100%;
+    left: 50%;
+    position: relative;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100%;
+}
