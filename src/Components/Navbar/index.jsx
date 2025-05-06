@@ -9,14 +9,20 @@ const Navbar = () => {
     const [toggleNav, setToggleNav] = useState(false);
 
     const navLink = [
-        { title: "3d Avatar", link: "#3dAvatar" },
+        { title: "2d Vtuber Model", link: "#2dVtuberModel" },
         { title: "Character Art", link: "#charcterArt" },
+        { title: "3d Model", link: "#3dModel" },
         { title: "Twitch", link: "#twitch" },
         { title: "Reference Sheets", link: "#referenceSheets" },
-        { title: "VR World", link: "#vRWorld" },
+        { title: "VR World", link: "#vrWorld" },
         { title: "Art Room", link: "#artRoom" },
         { title: "DND", link: "#dnd" },
-        { title: "Logo and Banner", link: "#logoAndBanner" },
+        { title: "DND Group Art Work", link: "#dndGroupArtWork" },
+        { title: "DND Reference Sheet", link: "#dndReferenseSheet" },
+        { title: "Printable Model", link: "#printableModel" },
+        { title: "OC Design", link: "#ocDesign" },
+        { title: "Streaming Package", link: "#streamingPackage" },
+        { title: "Logo And Banner", link: "#logoAndBanner" },
         { title: "Comic Book", link: "#comicBook" },
     ];
 
@@ -28,7 +34,6 @@ const Navbar = () => {
                         <a href="/" className="logo-div">
                             <img src={Logo} alt="Logo" />
                         </a>
-                        <p className="nav-text">Click on the image for a better view.</p>
                         <ul className="nav-links-div">
                             {navLink.map(navItem => (
                                 <li key={navItem.title}>

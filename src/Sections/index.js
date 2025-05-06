@@ -1,22 +1,34 @@
-import Avatar from "./Avatar.jsx";
-import CharacterArt from "./CharacterArt.jsx";
-import Twitch from "./Twitch.jsx";
-import ReferenceSheet from "./ReferenceSheet.jsx";
-import VrWorld from "./VrWorld.jsx";
-import ArtRoom from "./ArtRoom.jsx";
-import Dnd from "./Dnd.jsx";
-import LogoAndBanner from "./LogoAndBanner.jsx";
-import ComicBook from "./ComicBook.jsx";
-import About from "./About/index.jsx";
+import Avatar3d from "./Avatar3d";
+import Avatar2d from "./Avatar2d";
+import CharacterArt from "./CharacterArt";
+import Twitch from "./Twitch";
+import ReferenceSheet from "./ReferenceSheet";
+import VrWorld from "./VRWorld";
+import ArtRoom from "./ArtRoom";
+import DND from "./DND";
+import DNDGroupArtWork from "./DNDGroupArtWork";
+import DNDReferenceSheet from "./DNDReferenceSheet";
+import PrintableModel from "./PrintableModel";
+import OCDesign from "./OcDesign";
+import StreamingPackage from "./StreamingPackage";
+import LogoAndBanner from "./LogoAndBanner";
+import ComicBook from "./ComicBook";
+import About from "./About";
 
 export {
-    Avatar,
+    Avatar3d,
+    Avatar2d,
     CharacterArt,
     Twitch,
     ReferenceSheet,
     VrWorld,
     ArtRoom,
-    Dnd,
+    DND,
+    DNDGroupArtWork,
+    DNDReferenceSheet,
+    PrintableModel,
+    OCDesign,
+    StreamingPackage,
     LogoAndBanner,
     ComicBook,
     About

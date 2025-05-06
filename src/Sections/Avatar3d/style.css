@@ -1,0 +1,123 @@
+.main-img-div {
+    width: 100%;
+    padding: 100px 0px 0px 0px;
+    overflow: hidden;
+}
+
+.main-img-div>h1,
+.main-img-div>h2 {
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    font-family: "Baloo 2", sans-serif;
+}
+
+.main-img-div>h1 {
+    font-size: 5rem;
+    background-color: var(--color-2);
+    color: white;
+    padding: 20px;
+    position: relative;
+    font-weight: 800;
+}
+
+
+.main-img-div>h1>p {
+    margin: 0;
+}
+
+.main-img-div>h2 {
+    font-size: 3rem;
+    margin-top: 50px;
+    color: black;
+    font-weight: 700;
+}
+
+.division-line {
+    margin-top: 70px;
+    background-color: white;
+    height: 2px;
+    width: 100%;
+}
+
+.img-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.img-container .img-div {
+    width: 350px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 20px;
+    position: relative;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+/* Carousel */
+
+.main-carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-div {
+    width: 350px;
+    height: 400px;
+    position: relative;
+}
+
+.carousel-div>img {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-arrows {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    font-size: 40px;
+    position: absolute;
+    top: 45%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+@media only screen and (max-width:576px) {
+    .main-img-div {
+        padding: 100px 0px;
+    }
+
+    .main-img-div>h1 {
+        font-size: 3rem;
+    }
+
+    .main-img-div>h2 {
+        font-size: 2.6rem;
+    }
+}
+
+@media only screen and (max-width:430px) {
+    .img-container .img-div {
+        width: 300px;
+        height: 350px;
+    }
+}

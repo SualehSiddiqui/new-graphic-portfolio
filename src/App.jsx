@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import { useEffect, useState } from "react";
-import { Footer, Loader, Hero } from "./Components";
+import { Footer, Hero } from "./Components";
 import {
-  Avatar, CharacterArt, Twitch, ReferenceSheet, VrWorld, ArtRoom,
-  Dnd, LogoAndBanner, ComicBook,
-  About,
+  Avatar3d, Avatar2d, CharacterArt, Twitch, ReferenceSheet, VrWorld, ArtRoom,
+  DND, DNDGroupArtWork, DNDReferenceSheet, PrintableModel, LogoAndBanner, ComicBook,
+  About, OCDesign, StreamingPackage,
 } from "./Sections";
 
 
@@ -26,28 +26,25 @@ const Portfolio = () => {
     e.preventDefault();
   };
 
-  // const [showLoader, setShowLoader] = useState(true);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setShowLoader(false)
-  //   }, 5000)
-  // });
-
   return (
     <div onContextMenu={handleContextMenu}>
-      {/* {showLoader && <Loader />} */}
       <Hero />
       <About />
-      {/* <Avatar windowWidth={windowWidth} />
+      <Avatar2d windowWidth={windowWidth} />
+      <Avatar3d windowWidth={windowWidth} />
       <CharacterArt windowWidth={windowWidth} />
       <Twitch windowWidth={windowWidth} />
       <ReferenceSheet windowWidth={windowWidth} />
       <VrWorld windowWidth={windowWidth} />
       <ArtRoom windowWidth={windowWidth} />
-      <Dnd windowWidth={windowWidth} />
+      <DND windowWidth={windowWidth} />
+      <DNDGroupArtWork windowWidth={windowWidth} />
+      <DNDReferenceSheet windowWidth={windowWidth} />
+      <PrintableModel windowWidth={windowWidth} />
+      <OCDesign windowWidth={windowWidth} />
+      <StreamingPackage windowWidth={windowWidth} />
       <LogoAndBanner windowWidth={windowWidth} />
-      <ComicBook windowWidth={windowWidth} /> */}
+      <ComicBook windowWidth={windowWidth} />
       {/* <StickyIcons /> */}
       <Footer />
     </div>

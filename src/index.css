@@ -9,7 +9,8 @@
 
 body {
   color: white;
-  background-color: #EDEDED !important;
+  background-color: var(--color-1) !important;
+  /* background-color: #EDEDED !important; */
   font-family: "Baloo 2", sans-serif;
 }
 
