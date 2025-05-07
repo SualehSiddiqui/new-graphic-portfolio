@@ -33,7 +33,7 @@ const OCDesign = ({ windowWidth }) => {
                     dataOCDesign && dataOCDesign.map((value, key) => {
                         return (
                             <>
-                                <div className='character-art-portrait' key={key + 'portrait'}>
+                                <div data-aos="zoom-in" className='character-art-portrait' key={key + 'portrait'}>
                                     <Image
                                         width={windowWidth < 430 ? 250 : 300}
                                         height={windowWidth < 430 ? 300 : 400}

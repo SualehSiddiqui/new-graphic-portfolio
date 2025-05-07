@@ -17,20 +17,17 @@ import ReferenceSheet11 from "../../Assets/ReferenceSheet/character11.png";
 import ReferenceSheet12 from "../../Assets/ReferenceSheet/character12.png";
 import ReferenceSheet13 from "../../Assets/ReferenceSheet/character13.png";
 import ReferenceSheet14 from "../../Assets/ReferenceSheet/character14.png";
-import ReferenceSheet15 from "../../Assets/ReferenceSheet/character15.png";
-import ReferenceSheet16 from "../../Assets/ReferenceSheet/character16.png";
-import ReferenceSheet17 from "../../Assets/ReferenceSheet/character17.png";
 
 const dataRefernce = {
     landscape: [
-        ReferenceSheet1, ReferenceSheet2, ReferenceSheet4,
-        ReferenceSheet6, ReferenceSheet7, ReferenceSheet8,
+        ReferenceSheet1, ReferenceSheet2, ReferenceSheet3,
+        ReferenceSheet4, ReferenceSheet5,
+        ReferenceSheet6, ReferenceSheet7,
         ReferenceSheet9, ReferenceSheet11, ReferenceSheet12,
-        ReferenceSheet13, ReferenceSheet16, ReferenceSheet17,
+        ReferenceSheet13
     ],
     portrait: [
-        ReferenceSheet3, ReferenceSheet5, ReferenceSheet8,
-        ReferenceSheet10, ReferenceSheet14, ReferenceSheet15
+        ReferenceSheet8, ReferenceSheet10, ReferenceSheet14
     ],
 };
 
@@ -46,7 +43,7 @@ const ReferenceSheet = ({ windowWidth }) => {
             <Container className="img-container">
                 {
                     dataRefernce && dataRefernce.portrait.map((value, key) => (
-                        <div className='character-art-portrait' key={key + 'reference-portrait'}>
+                        <div data-aos="zoom-in" className='character-art-portrait' key={key + 'reference-portrait'}>
                             <Image
                                 width={windowWidth < 430 ? 250 : 300}
                                 height={windowWidth < 430 ? 300 : 400}
@@ -58,7 +55,7 @@ const ReferenceSheet = ({ windowWidth }) => {
                 }
                 {
                     dataRefernce && dataRefernce.landscape.map((value, key) => (
-                        <div className='character-art-landscape' key={key + 'reference-lanscape'}>
+                        <div data-aos="zoom-in" className='character-art-landscape' key={key + 'reference-lanscape'}>
                             <Image
                                 width={windowWidth < 430 ? 350 : 450}
                                 height={windowWidth < 430 ? 250 : 300}

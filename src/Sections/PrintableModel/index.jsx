@@ -42,7 +42,7 @@ const PrintableModel = ({ windowWidth }) => {
                                 {
                                     value.image && value.image.map((v, i) => {
                                         return (
-                                            <div className="character-art-portrait" key={i}>
+                                            <div data-aos="zoom-in" className="character-art-portrait" key={i}>
                                                 <Image
                                                     src={v}
                                                     alt="Images"
@@ -56,7 +56,7 @@ const PrintableModel = ({ windowWidth }) => {
                                 {
                                     value.video && value.video.map((v, i) => {
                                         return (
-                                            <div className="printable-model-video" key={i}>
+                                            <div data-aos="zoom-in" className="printable-model-video" key={i}>
                                                 <video
                                                     width={windowWidth < 430 ? 300 : 400}
                                                     height={200}

@@ -26,7 +26,7 @@ const DNDReferenceSheet = ({ windowWidth }) => {
                 {
                     dataDND && Object.entries(dataDND).map(([key, value]) => {
                         return value.map(imageUrl => (
-                            <div className='character-art-portrait' key={key}>
+                            <div data-aos="zoom-in" className='character-art-portrait' key={key}>
                                 <Image
                                     width={windowWidth < 430 ? 250 : 300}
                                     height={windowWidth < 430 ? 300 : 400}

@@ -30,7 +30,7 @@ const VrWorld = ({ windowWidth }) => {
             <Container className="img-container">
                 {
                     dataVR && dataVR.images.map((v, i) => (
-                        <div className="twitch-img-div" key={i}>
+                        <div data-aos="zoom-in" className="art-room-div" key={i}>
                             <Image
                                 src={v}
                                 alt="Images"

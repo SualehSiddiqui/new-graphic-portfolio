@@ -69,7 +69,7 @@ const LogoAndBanner = ({ windowWidth }) => {
               <>
                 {
                   value.logo && value.logo.image &&
-                  <div className="logo-img-div" key={value.logo.image}>
+                  <div data-aos="zoom-in" className="logo-img-div" key={value.logo.image}>
                     <Image
                       src={value.logo.image}
                       alt="Images"
@@ -80,7 +80,7 @@ const LogoAndBanner = ({ windowWidth }) => {
                 }
                 {
                   value.logo && value.logo.video &&
-                  <div className="logo-img-div" key={value.logo.video}>
+                  <div data-aos="zoom-in" className="logo-img-div" key={value.logo.video}>
                     <video
                       width={300}
                       height={300}
@@ -95,7 +95,7 @@ const LogoAndBanner = ({ windowWidth }) => {
                 }
                 {
                   value.banner && value.banner.image &&
-                  <div className="twitch-img-div" key={value.banner.image}>
+                  <div data-aos="zoom-in" className="twitch-img-div" key={value.banner.image}>
                     <Image
                       src={value.banner.image}
                       alt="Images"
@@ -106,7 +106,7 @@ const LogoAndBanner = ({ windowWidth }) => {
                 }
                 {
                   value.banner && value.banner.video &&
-                  <div className="twitch-img-div" key={value.banner.video}>
+                  <div data-aos="zoom-in" className="twitch-img-div" key={value.banner.video}>
                     <video
                       width={windowWidth < 430 ? 300 : 400}
                       height={200}

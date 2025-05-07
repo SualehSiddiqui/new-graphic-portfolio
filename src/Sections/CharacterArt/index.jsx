@@ -34,6 +34,8 @@ import character27 from "../../Assets/CharacterArt/character27.png";
 import character28 from "../../Assets/CharacterArt/character28.png";
 import character29 from "../../Assets/CharacterArt/character29.png";
 import character30 from "../../Assets/CharacterArt/character30.png";
+import character31 from "../../Assets/CharacterArt/character31.png";
+import character32 from "../../Assets/CharacterArt/character32.png";
 
 const dataCharacterArt = {
     portrait: [
@@ -42,7 +44,7 @@ const dataCharacterArt = {
         character15, character16, character17, character18,
         character19, character20, character21, character22, character23,
         character24, character25, character26, character27, character28,
-        character29, character30
+        character29, character30, character31, character32
     ],
     landscape: [
         character3, character4, character5, character9, character16,
@@ -64,7 +66,7 @@ const CharacterArt = ({ windowWidth }) => {
                     dataCharacterArt && dataCharacterArt.portrait.map((value, key) => {
                         return (
                             <>
-                                <div className='character-art-portrait' key={key + 'portrait'}>
+                                <div data-aos="zoom-in" className='character-art-portrait' key={key + 'portrait'}>
                                     <Image
                                         width={windowWidth < 430 ? 250 : 300}
                                         height={windowWidth < 430 ? 300 : 400}
@@ -80,7 +82,7 @@ const CharacterArt = ({ windowWidth }) => {
                     dataCharacterArt && dataCharacterArt.landscape.map((value, key) => {
                         return (
                             <>
-                                <div className='character-art-landscape' key={key + 'landscape'}>
+                                <div data-aos="zoom-in" className='character-art-landscape' key={key + 'landscape'}>
                                     <Image
                                         width={windowWidth < 430 ? 350 : 450}
                                         height={windowWidth < 430 ? 300 : 300}

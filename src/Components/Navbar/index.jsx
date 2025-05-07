@@ -9,20 +9,19 @@ const Navbar = () => {
     const [toggleNav, setToggleNav] = useState(false);
 
     const navLink = [
-        { title: "2d Vtuber Model", link: "#2dVtuberModel" },
         { title: "Character Art", link: "#charcterArt" },
-        { title: "3d Model", link: "#3dModel" },
-        { title: "Twitch", link: "#twitch" },
-        { title: "Reference Sheets", link: "#referenceSheets" },
-        { title: "VR World", link: "#vrWorld" },
-        { title: "Art Room", link: "#artRoom" },
-        { title: "DND", link: "#dnd" },
-        { title: "DND Group Art Work", link: "#dndGroupArtWork" },
-        { title: "DND Reference Sheet", link: "#dndReferenseSheet" },
-        { title: "Printable Model", link: "#printableModel" },
         { title: "OC Design", link: "#ocDesign" },
+        { title: "DND", link: "#dnd" },
+        { title: "3d Model", link: "#3dModel" },
+        { title: "2d Vtuber Model", link: "#2dVtuberModel" },
+        { title: "DND Reference Sheet", link: "#dndReferenseSheet" },
+        { title: "Reference Sheets", link: "#referenceSheets" },
+        { title: "DND Group Art Work", link: "#dndGroupArtWork" },
         { title: "Streaming Package", link: "#streamingPackage" },
         { title: "Logo And Banner", link: "#logoAndBanner" },
+        { title: "Printable Model", link: "#printableModel" },
+        { title: "VR World", link: "#vrWorld" },
+        { title: "Art Room", link: "#artRoom" },
         { title: "Comic Book", link: "#comicBook" },
     ];
 

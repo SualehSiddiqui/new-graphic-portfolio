@@ -1,109 +1,88 @@
-.about-sec-main {
+.contact-sec-main {
     width: 100%;
     height: 80vh;
     font-family: "Baloo 2", sans-serif;
-    background-color: #EDEDED;
+    margin-top: 20px;
 }
 
-.about-sec-container {
+.contact-sec-container {
     height: 100% !important;
     padding-top: 70px;
     padding-bottom: 70px;
     display: flex;
-    justify-content: space-between;
 }
 
-.about-sec-text {
+.contact-sec-text {
     width: 50%;
     height: auto;
     display: flex;
+    padding-left: 10px;
     justify-content: center;
     flex-direction: column;
-}
-
-.about-sec-text>h1 {
-    width: 100%;
-    font-size: 48px;
-    font-weight: 800;
-    padding: 15px 0px;
-    color: var(--color-2);
-    border-bottom: 1px solid var(--color-2);
-}
-
-.about-sec-text>p {
-    font-size: 18px;
-}
-
-.about-social-icons {
-    display: flex;
     align-items: center;
-    text-decoration: none;
-    color: black;
-    width: 200px;
-    transition: .3s;
 }
 
-.social-icons {
-    margin-right: 10px;
-    padding: 5px 7px;
-    background-color: var(--color-1);
+.contact-hd-1,
+.contact-hd-2 {
+    font-size: 58px;
+    font-weight: 800;
+    color: var(--color-2);
+}
+
+.contact-hd-2{
     color: white;
-    border-radius: 50%;
-    transition: .3s;
+    margin-top: -20px;
 }
 
-.about-social-icons:hover .social-icons {
-    background-color: var(--color-2);
+.contact-sec-text>p {
+    font-size: 18px;
+    color: white;
 }
 
-.about-sec-img {
+.contact-sec-img {
     width: 40%;
     height: 100%;
     border-radius: 14px;
     overflow: hidden;
+    background-color: white;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-.about-sec-img>img {
+.contact-sec-img>img {
     width: 100%;
     height: 100%;
 }
 
 @media only screen and (max-width:992px) {
-    .about-sec-text>h1 {
+    .contact-sec-text>h1 {
         font-size: 38px;
         font-weight: 800;
         padding: 5px 0px;
     }
 
-    .about-sec-text>p {
+    .contact-sec-text>p {
         font-size: 16px;
         margin-bottom: 5px;
     }
 
-    .about-social-icons {
+    .contact-social-icons {
         font-size: 16px;
-    }
-
-    .social-icons {
-        margin-right: 10px;
-        padding: 5px 7px;
     }
 }
 
 @media only screen and (max-width:768px) {
-    .about-sec-main {
+    .contact-sec-main {
         height: 70vh;
     }
 
-    .about-sec-container {
+    .contact-sec-container {
         flex-direction: column-reverse;
         padding-top: 20px;
         padding-bottom: 20px;
     }
 
-    .about-sec-img,
-    .about-sec-text {
+    .contact-sec-img,
+    .contact-sec-text {
         width: 100%;
     }
 }

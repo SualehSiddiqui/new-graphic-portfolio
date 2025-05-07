@@ -1,4 +1,4 @@
-.twitch-img-div {
+.art-room-div {
     width: 400px;
     height: 200px;
     overflow: hidden;
@@ -9,7 +9,7 @@
 }
 
 @media only screen and (max-width:430px) {
-    .twitch-img-div {
+    .art-room-div {
         width: 300px;
     }
 }

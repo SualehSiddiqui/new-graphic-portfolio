@@ -3,13 +3,18 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import { Footer, Hero } from "./Components";
 import {
-  Avatar3d, Avatar2d, CharacterArt, Twitch, ReferenceSheet, VrWorld, ArtRoom,
+  Avatar3d, Avatar2d, CharacterArt, ReferenceSheet, VrWorld, ArtRoom,
   DND, DNDGroupArtWork, DNDReferenceSheet, PrintableModel, LogoAndBanner, ComicBook,
-  About, OCDesign, StreamingPackage,
+  About, Contact, OCDesign, StreamingPackage,
 } from "./Sections";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Portfolio = () => {
+  useEffect(() => {
+    AOS.init();
+  }, [])
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -30,21 +35,21 @@ const Portfolio = () => {
     <div onContextMenu={handleContextMenu}>
       <Hero />
       <About />
-      <Avatar2d windowWidth={windowWidth} />
-      <Avatar3d windowWidth={windowWidth} />
       <CharacterArt windowWidth={windowWidth} />
-      <Twitch windowWidth={windowWidth} />
-      <ReferenceSheet windowWidth={windowWidth} />
-      <VrWorld windowWidth={windowWidth} />
-      <ArtRoom windowWidth={windowWidth} />
-      <DND windowWidth={windowWidth} />
-      <DNDGroupArtWork windowWidth={windowWidth} />
-      <DNDReferenceSheet windowWidth={windowWidth} />
-      <PrintableModel windowWidth={windowWidth} />
       <OCDesign windowWidth={windowWidth} />
+      <DND windowWidth={windowWidth} />
+      <Avatar3d windowWidth={windowWidth} />
+      <Avatar2d windowWidth={windowWidth} />
+      <DNDReferenceSheet windowWidth={windowWidth} />
+      <ReferenceSheet windowWidth={windowWidth} />
+      <DNDGroupArtWork windowWidth={windowWidth} />
       <StreamingPackage windowWidth={windowWidth} />
       <LogoAndBanner windowWidth={windowWidth} />
+      <PrintableModel windowWidth={windowWidth} />
+      <VrWorld windowWidth={windowWidth} />
+      <ArtRoom windowWidth={windowWidth} />
       <ComicBook windowWidth={windowWidth} />
+      <Contact />
       {/* <StickyIcons /> */}
       <Footer />
     </div>

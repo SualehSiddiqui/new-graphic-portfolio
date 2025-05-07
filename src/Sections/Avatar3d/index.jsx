@@ -144,7 +144,7 @@ const Avatar = ({ windowWidth }) => {
                 {
                     data3d && Object.entries(data3d.human).map(([key, value]) => {
                         return (
-                            <div className="img-div" key={key}>
+                            <div data-aos="zoom-in" className="img-div" key={key}>
                                 <Carousel
                                     arrows
                                     prevArrow={<CustomPrevArrow />}
@@ -208,7 +208,7 @@ const Avatar = ({ windowWidth }) => {
                 {
                     data3d && Object.entries(data3d.furry).map(([key, value]) => {
                         return (
-                            <div className="img-div" key={key}>
+                            <div data-aos="zoom-in" className="img-div" key={key}>
                                 <Carousel
                                     arrows
                                     prevArrow={<CustomPrevArrow />}

@@ -13,15 +13,12 @@ import Character2vid2 from "../../Assets/2DVtuberModel/character2img2.mp4";
 import Character3img1 from "../../Assets/2DVtuberModel/character3img1.png";
 import Character3vid2 from "../../Assets/2DVtuberModel/character3img2.mp4";
 import Character4vid1 from "../../Assets/2DVtuberModel/character4img1.mp4";
-import Character5img1 from "../../Assets/2DVtuberModel/character5img1.png";
-import Character5img2 from "../../Assets/2DVtuberModel/character5img2.png";
 
 const data2d = {
     character1: [Character1img1, { video: [Character1vid2] }],
     character2: [Character2img1, { video: [Character2vid2] }],
     character3: [Character3img1, { video: [Character3vid2] }],
     character4: [{ video: [Character4vid1] }],
-    character4: [Character5img1, Character5img2],
 
 };
 
@@ -50,7 +47,7 @@ const Avatar2d = ({ windowWidth }) => {
                 {
                     data2d && Object.entries(data2d).map(([key, value]) => {
                         return (
-                            <div className="img-div" key={key}>
+                            <div data-aos="zoom-in" className="img-div" key={key}>
                                 <Carousel
                                     arrows
                                     prevArrow={value.length > 1 ? <CustomPrevArrow /> : <></>}

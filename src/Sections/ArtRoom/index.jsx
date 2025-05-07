@@ -1,4 +1,5 @@
 import React from 'react';
+import "./style.css";
 import { Container } from "react-bootstrap";
 import { Image } from 'antd';
 import { SvgComponent } from "../../Components";
@@ -70,7 +71,7 @@ const ArtRoom = ({ windowWidth }) => {
                                 {
                                     value.image && value.image.map((v, i) => {
                                         return (
-                                            <div className="twitch-img-div" key={i}>
+                                            <div data-aos="zoom-in" className="art-room-div" key={i}>
                                                 <Image
                                                     src={v}
                                                     alt="Images"
@@ -84,7 +85,7 @@ const ArtRoom = ({ windowWidth }) => {
                                 {
                                     value.video && value.video.map((v, i) => {
                                         return (
-                                            <div className="twitch-img-div" key={i}>
+                                            <div data-aos="zoom-in" className="art-room-div" key={i}>
                                                 <video
                                                     width={windowWidth < 430 ? 300 : 400}
                                                     height={200}
