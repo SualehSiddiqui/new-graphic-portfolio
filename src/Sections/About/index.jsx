@@ -3,7 +3,7 @@ import "./style.css";
 import AboutMeImg from "../../Assets/about-sec.jpg"
 import { Container } from 'react-bootstrap';
 import { IoMail } from "react-icons/io5";
-import { FaXTwitter,FaInstagram } from "react-icons/fa6";
+import { FaXTwitter, FaInstagram } from "react-icons/fa6";
 
 
 const About = () => {
@@ -33,7 +33,7 @@ const About = () => {
                             <FaXTwitter />
                         </span>
                         <span>
-                            Artistory Model
+                            ArtistryModel
                         </span>
                     </a>
                     <a href='https://www.instagram.com/artistry_world_' target='_blank' className='mt-1 about-social-icons'>
@@ -41,7 +41,7 @@ const About = () => {
                             <FaInstagram />
                         </span>
                         <span>
-                            Artistory Model
+                            artistry_world_
                         </span>
                     </a>
                 </div>
