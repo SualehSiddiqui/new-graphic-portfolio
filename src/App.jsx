@@ -1,14 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 import { useEffect, useState } from "react";
 import { Footer, Hero } from "./Components";
 import {
   Avatar3d, Avatar2d, CharacterArt, ReferenceSheet, VrWorld, ArtRoom,
-  DND, DNDGroupArtWork, DNDReferenceSheet, PrintableModel, LogoAndBanner, ComicBook,
-  About, Contact, OCDesign, StreamingPackage,
+  DND, DNDGroupArtWork, DNDReferenceSheet, PrintableModel, LogoAndBanner,
+  ComicBook, About, Contact, OCDesign, StreamingPackage,
 } from "./Sections";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 const Portfolio = () => {
   useEffect(() => {
@@ -18,7 +18,7 @@ const Portfolio = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    // Define the handler for the resize event
+    // Define the handler for the resize event  
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };

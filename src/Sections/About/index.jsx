@@ -31,7 +31,7 @@ const About = () => {
                     <a href='https://x.com/ArtistryModel' target='_blank' className='mt-1 about-social-icons'>
                         <span className='social-icons'>
                             <FaXTwitter />
-                        </span>
+                        </span> 
                         <span>
                             ArtistryModel
                         </span>
