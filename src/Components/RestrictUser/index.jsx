@@ -39,7 +39,7 @@ function RestrictUser({ children }) {
 
 
 
-    return true ? children : <AccessDeniedUi />;
+    return accessGranted ? children : <AccessDeniedUi />;
 }
 
 export default RestrictUser
