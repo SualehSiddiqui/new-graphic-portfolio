@@ -8,7 +8,7 @@ import DND from "./DND";
 import DNDGroupArtWork from "./DNDGroupArtWork";
 import DNDReferenceSheet from "./DNDReferenceSheet";
 import PrintableModel from "./PrintableModel";
-import OCDesign from "./OcDesign";
+import OCDesign from "./OCDesign";
 import StreamingPackage from "./StreamingPackage";
 import LogoAndBanner from "./LogoAndBanner";
 import ComicBook from "./ComicBook";
