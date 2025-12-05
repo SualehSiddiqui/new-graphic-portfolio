@@ -31,8 +31,8 @@ const DNDGroupArtWork = ({ windowWidth }) => {
                         return value.map(imageUrl => (
                             <div data-aos="zoom-in" className='character-art-landscape' key={key}>
                                 <Image
-                                    width={windowWidth < 430 ? 350 : 450}
-                                    height={windowWidth < 430 ? 300 : 300}
+                                    width={windowWidth < 430 ? 300 : 350}
+                                    height={200}
                                     src={imageUrl}
                                     alt="Image"
                                 />

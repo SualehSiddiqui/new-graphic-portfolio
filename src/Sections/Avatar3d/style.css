@@ -2,6 +2,7 @@
     width: 100%;
     padding: 100px 0px 0px 0px;
     overflow: hidden;
+    background-image: url("../../Assets/sections-bg.png");
 }
 
 .main-img-div>h1,
@@ -103,7 +104,7 @@
 
 @media only screen and (max-width:576px) {
     .main-img-div {
-        padding: 100px 0px;
+        padding: 0px;
     }
 
     .main-img-div>h1 {
@@ -117,7 +118,7 @@
 
 @media only screen and (max-width:430px) {
     .img-container .img-div {
-        width: 300px;
+        width: 200px;
         height: 350px;
     }
 }

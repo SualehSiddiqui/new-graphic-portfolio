@@ -113,4 +113,8 @@
     .demo-page-1::after {
         opacity: 1;
     }
+
+    .stf__wrapper{
+        padding-bottom: 0 !important;
+    }
 }

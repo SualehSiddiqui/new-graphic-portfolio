@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import "./style.css";
 import { Container } from "react-bootstrap";
 import { SvgComponent } from "../../Components";
@@ -114,6 +114,14 @@ const ComicBook = ({ windowWidth }) => {
   const [comicToggleValue, setComicToggleValue] = useState(false);
   const [comicValue, setComicValue] = useState([]);
 
+  const books = Object.entries(dataComicBook);
+
+  const [visibleCount, setVisibleCount] = useState(2);
+
+  const loadMore = () => {
+    setVisibleCount(prev => prev + 2);
+  };
+
   return (
     <div className="main-img-div" id='comicBook'>
       <h1>
@@ -122,55 +130,73 @@ const ComicBook = ({ windowWidth }) => {
         </p>
         <SvgComponent />
       </h1>
-      {windowWidth < 768 ?
+
+      {/* MOBILE VERSION */}
+      {windowWidth < 768 ? (
         <Container className="comic-container">
-          {dataComicBook && Object.entries(dataComicBook).map(([key, value]) => (
-            <ComicBookViewer
-              key={key}
-              value={value}
-            />
+          {books.slice(0, visibleCount).map(([key, value]) => (
+            <ComicBookViewer key={key} value={value} />
           ))}
+
+          {visibleCount < books.length && (
+            <div className="load-more-wrapper">
+              <button className="load-more-btn" onClick={loadMore}>
+                Load More
+              </button>
+            </div>
+          )}
         </Container>
-        :
+      ) : (
+        /* DESKTOP VERSION */
         <Container className="comic-container">
-          {dataComicBook && Object.entries(dataComicBook).map(([key, value]) => {
-            return (
-              <>
-                <input
-                  type="checkbox"
-                  checked={comicToggleValue}
-                  id="comic-toggle"
-                  onChange={e => {
-                    setComicToggleValue(!comicToggleValue)
-                  }}
-                />
-                <label onClick={e => {
-                  setComicValue(value)
-                }}
-                  htmlFor="comic-toggle"
-                  className="comic-preview  demo-page demo-page-1"
-                  key={key}
-                >
-                  <img src={value[0]} alt={'img'} />
-                </label>
-              </>
-            )
-          })}
+
+          {books.slice(0, visibleCount).map(([key, value]) => (
+            <div key={key}>
+              <input
+                type="checkbox"
+                checked={comicToggleValue}
+                id="comic-toggle"
+                onChange={() => setComicToggleValue(!comicToggleValue)}
+              />
+
+              <label
+                onClick={() => setComicValue(value)}
+                htmlFor="comic-toggle"
+                className="comic-preview demo-page demo-page-1"
+              >
+                <img src={value[0]} alt="img" />
+              </label>
+            </div>
+          ))}
+
+          {visibleCount < books.length ?
+            <div className="load-more-btn-wrapper">
+              <button className="load-more-btn" onClick={e => setVisibleCount(prev => prev + 2)}>
+                Load More
+              </button>
+            </div> :
+            <div className="load-more-btn-wrapper">
+              <button className="load-more-btn" onClick={e => setVisibleCount(2)}>
+                Hide
+              </button>
+            </div>
+          }
+
           <div className="comic-book-div">
             <div>
-              <span onClick={e => setComicToggleValue(false)}>
+              <span onClick={() => setComicToggleValue(false)}>
                 <ImCross />
               </span>
-              <ComicBookViewer
-                key={0}
-                value={comicValue}
-              />
+
+              <ComicBookViewer key={0} value={comicValue} />
             </div>
           </div>
+
         </Container>
-      }
-    </div >
-  )
-}
+      )}
+    </div>
+  );
+};
+
 
 export default ComicBook

@@ -1,4 +1,3 @@
-import React from 'react';
 import "./style.css"
 import Navbar from '../Navbar';
 import { Container } from 'react-bootstrap';
@@ -13,7 +12,7 @@ const Hero = () => {
                 <div className='hero-text'>
                     <TypeAnimation
                         sequence={[
-                            'Your World, Your Style — Brought to Life Digitally!',
+                            'Your World, Your Style Brought to Life Digitally!',
                             1000,
                         ]}
                         wrapper="h1"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./style.css";
 import { Container } from "react-bootstrap";
 import { Image } from 'antd';
@@ -31,72 +31,109 @@ import character24 from "../../Assets/CharacterArt/character24.png";
 import character25 from "../../Assets/CharacterArt/character25.png";
 import character26 from "../../Assets/CharacterArt/character26.png";
 import character27 from "../../Assets/CharacterArt/character27.png";
-import character28 from "../../Assets/CharacterArt/character28.png";
-import character29 from "../../Assets/CharacterArt/character29.png";
-import character30 from "../../Assets/CharacterArt/character30.png";
-import character31 from "../../Assets/CharacterArt/character31.png";
-import character32 from "../../Assets/CharacterArt/character32.png";
 
 const dataCharacterArt = {
     portrait: [
-        character1, character2, character6, character8,
-        character10, character11, character12, character13,
-        character15, character16, character17, character18,
-        character19, character20, character21, character22, character23,
-        character24, character25, character26, character27, character28,
-        character29, character30, character31, character32
+        character20,
+        character1,
+        character14,
+        character10,
+        character11,
+        character8,
+        character5,
+        character22,
+        character25,
+        character17,
+        character23,
+        character21,
+        character12,
+        character2,
+        character6,
+        character18,
+        character24,
+        character26,
+        character27
     ],
     landscape: [
-        character3, character4, character5, character9, character16,
-        character7, character14
+        character3,
+        character4,
+        character9,
+        character13,
+        character15,
+        character16,
+        character19,
+        character7,
     ]
 };
 
 const CharacterArt = ({ windowWidth }) => {
+
+    const allImages = [
+        ...dataCharacterArt.portrait.map(img => ({ type: "portrait", src: img })),
+        ...dataCharacterArt.landscape.map(img => ({ type: "landscape", src: img }))
+    ];
+
+    const [increaseBy, setIncreaseBy] = useState( windowWidth <= 430 ? 6 : 10);
+
+    useEffect(() => {
+        setIncreaseBy(windowWidth <= 430 ? 6 : 10)
+    }, [windowWidth])
+
+    const [visibleCount, setVisibleCount] = useState(increaseBy);
+
     return (
         <div className="main-img-div" id='charcterArt'>
             <h1>
-                <p data-aos="fade-right" data-aos-duration={600} >
+                <p data-aos="fade-right" data-aos-duration={600}>
                     Character Art
                 </p>
                 <SvgComponent />
             </h1>
+
             <Container className="img-container">
-                {
-                    dataCharacterArt && dataCharacterArt.portrait.map((value, key) => {
-                        return (
-                            <>
-                                <div data-aos="zoom-in" className='character-art-portrait' key={key + 'portrait'}>
-                                    <Image
-                                        width={windowWidth < 430 ? 250 : 300}
-                                        height={windowWidth < 430 ? 300 : 400}
-                                        src={value}
-                                        alt="Image"
-                                    />
-                                </div>
-                            </>
-                        )
-                    })
+
+                {allImages.slice(0, visibleCount).map((item, index) => {
+                    return (
+                        <div
+                            key={index}
+                            data-aos="zoom-in"
+                            className={item.type === "portrait"
+                                ? "character-art-portrait"
+                                : "character-art-landscape"
+                            }
+                        >
+                            <Image
+                                width={item.type === "portrait"
+                                    ? (windowWidth < 430 ? 200 : 200)
+                                    : (windowWidth < 430 ? 300 : 350)
+                                }
+                                height={item.type === "portrait"
+                                    ? (windowWidth < 430 ? 250 : 300)
+                                    : 200
+                                }
+                                src={item.src}
+                                alt="Character Art"
+                            />
+                        </div>
+                    )
+                })}
+
+                {visibleCount < allImages.length ?
+                    <div className="load-more-btn-wrapper">
+                        <button className="load-more-btn" onClick={e => setVisibleCount(prev => prev + increaseBy)}>
+                            Load More
+                        </button>
+                    </div> :
+                    <div className="load-more-btn-wrapper">
+                        <button className="load-more-btn" onClick={e => setVisibleCount(increaseBy)}>
+                            Hide
+                        </button>
+                    </div>
                 }
-                {
-                    dataCharacterArt && dataCharacterArt.landscape.map((value, key) => {
-                        return (
-                            <>
-                                <div data-aos="zoom-in" className='character-art-landscape' key={key + 'landscape'}>
-                                    <Image
-                                        width={windowWidth < 430 ? 350 : 450}
-                                        height={windowWidth < 430 ? 300 : 300}
-                                        src={value}
-                                        alt="Image"
-                                    />
-                                </div>
-                            </>
-                        )
-                    })
-                }
+
             </Container>
         </div >
-    )
-}
+    );
+};
 
-export default CharacterArt
+export default CharacterArt;

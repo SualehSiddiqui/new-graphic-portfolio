@@ -13,12 +13,17 @@ import Character2vid2 from "../../Assets/2DVtuberModel/character2img2.mp4";
 import Character3img1 from "../../Assets/2DVtuberModel/character3img1.png";
 import Character3vid2 from "../../Assets/2DVtuberModel/character3img2.mp4";
 import Character4vid1 from "../../Assets/2DVtuberModel/character4img1.mp4";
+import Character5img1 from "../../Assets/2DVtuberModel/character5img1.png";
+import Character5vid2 from "../../Assets/2DVtuberModel/character5img2.mp4";
+import Character6vid1 from "../../Assets/2DVtuberModel/character6img1.mp4";
 
 const data2d = {
     character1: [Character1img1, { video: [Character1vid2] }],
     character2: [Character2img1, { video: [Character2vid2] }],
     character3: [Character3img1, { video: [Character3vid2] }],
     character4: [{ video: [Character4vid1] }],
+    character5: [Character5img1, { video: [Character5vid2] }],
+    character6: [{ video: [Character6vid1] }],
 
 };
 

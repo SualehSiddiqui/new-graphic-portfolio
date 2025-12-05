@@ -1,6 +1,5 @@
-import React from 'react';
 import "./style.css";
-import AboutMeImg from "../../Assets/about-sec.jpg"
+import AboutMeImg from "../../Assets/about-sec.png";
 import { Container } from 'react-bootstrap';
 import { IoMail } from "react-icons/io5";
 import { FaXTwitter, FaInstagram } from "react-icons/fa6";

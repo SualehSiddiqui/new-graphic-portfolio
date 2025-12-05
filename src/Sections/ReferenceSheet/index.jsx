@@ -45,8 +45,8 @@ const ReferenceSheet = ({ windowWidth }) => {
                     dataRefernce && dataRefernce.portrait.map((value, key) => (
                         <div data-aos="zoom-in" className='character-art-portrait' key={key + 'reference-portrait'}>
                             <Image
-                                width={windowWidth < 430 ? 250 : 300}
-                                height={windowWidth < 430 ? 300 : 400}
+                                width={windowWidth < 430 ? 200 : 200}
+                                height={windowWidth < 430 ? 250 : 300}
                                 src={value}
                                 alt="Image"
                             />
@@ -57,8 +57,8 @@ const ReferenceSheet = ({ windowWidth }) => {
                     dataRefernce && dataRefernce.landscape.map((value, key) => (
                         <div data-aos="zoom-in" className='character-art-landscape' key={key + 'reference-lanscape'}>
                             <Image
-                                width={windowWidth < 430 ? 350 : 450}
-                                height={windowWidth < 430 ? 250 : 300}
+                                width={windowWidth < 430 ? 300 : 350}
+                                height={200}
                                 src={value}
                                 alt="Image"
                             />

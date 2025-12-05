@@ -1,31 +1,29 @@
 import "./style.css";
-import React from "react";
 import { FaXTwitter, FaWhatsapp, FaInstagram, } from "react-icons/fa6";
-
+import FooterBG from "../../Assets/footer-bg.jpeg"
+import FooterBG2 from "../../Assets/footer-bg-2.jpeg"
+import { useEffect, useState } from "react";
 
 
 const Footer = () => {
-    const navLink = [
-        { title: "Character Art", link: "#charcterArt" },
-        { title: "OC Design", link: "#ocDesign" },
-        { title: "DND", link: "#dnd" },
-        { title: "3d Model", link: "#3dModel" },
-        { title: "2d Vtuber Model", link: "#2dVtuberModel" },
-        { title: "DND Reference Sheet", link: "#dndReferenseSheet" },
-        { title: "Reference Sheets", link: "#referenceSheets" },
-        { title: "DND Group Art Work", link: "#dndGroupArtWork" },
-        { title: "Streaming Package", link: "#streamingPackage" },
-        { title: "Logo And Banner", link: "#logoAndBanner" },
-        { title: "Printable Model", link: "#printableModel" },
-        { title: "VR World", link: "#vrWorld" },
-        { title: "Art Room", link: "#artRoom" },
-        { title: "Comic Book", link: "#comicBook" },
-    ];
-    
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        // Define the handler for the resize event  
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        // Add the event listener when the component mounts
+        window.addEventListener('resize', handleResize);
+    }, []);
     return (
         <div className="main-footer">
+            <div className="footer-bg">
+                <img src={windowWidth <= 430 ? FooterBG2 :FooterBG} alt="" />
+            </div>
             <h1>Contact Us</h1>
-            <div className="social-icons-div">
+            <div className="social-icons-div mb-3">
                 <a href='https://wa.me/13868469348' target='_blank' className="social-icon">
                     <FaWhatsapp />
                 </a>
@@ -36,7 +34,7 @@ const Footer = () => {
                     <FaXTwitter />
                 </a>
             </div>
-            <ul className="footer-links">
+            {/* <ul className="footer-links">
                 {
                     navLink.map((value, key) => (
                         <li>
@@ -46,7 +44,7 @@ const Footer = () => {
                         </li>
                     ))
                 }
-            </ul>
+            </ul> */}
             <div className="footer-bottom">
                 © 2025 Copyright: Domain.com
             </div>

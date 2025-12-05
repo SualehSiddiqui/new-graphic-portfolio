@@ -1,8 +1,12 @@
 .contact-sec-main {
     width: 100%;
-    height: 80vh;
+    height: 120vh;
     font-family: "Baloo 2", sans-serif;
     margin-top: 20px;
+    background-color: black;
+    background-image: url("../../Assets/contact-sec-bg.jpeg");
+    background-position: bottom;
+    background-size: cover;
 }
 
 .contact-sec-container {
@@ -10,6 +14,8 @@
     padding-top: 70px;
     padding-bottom: 70px;
     display: flex;
+    /* justify-content: center; */
+    align-items: center;
 }
 
 .contact-sec-text {
@@ -29,7 +35,7 @@
     color: var(--color-2);
 }
 
-.contact-hd-2{
+.contact-hd-2 {
     color: white;
     margin-top: -20px;
 }
@@ -40,12 +46,12 @@
 }
 
 .contact-sec-img {
-    width: 40%;
+    width: 35%;
     height: 100%;
     border-radius: 14px;
     overflow: hidden;
-    background-color: white;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    /* background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
 }
 
 .contact-sec-img>img {
@@ -72,13 +78,28 @@
 
 @media only screen and (max-width:768px) {
     .contact-sec-main {
-        height: 70vh;
+        height: 50vh;
+        background: none;
+        position: relative;
+        z-index: 0;
     }
-
+    
+    .contact-sec-main:before{
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+        background-image: url("../../Assets/contact-sec-bg.jpeg");
+        background-position: right;
+        background-size: cover;
+    }
+    
     .contact-sec-container {
-        flex-direction: column-reverse;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        /* flex-direction: column-reverse; */
+        padding: 0px;
+        /* padding-bottom: 20px; */
+        background-color: rgba(0, 0, 0, 0.4);
     }
 
     .contact-sec-img,

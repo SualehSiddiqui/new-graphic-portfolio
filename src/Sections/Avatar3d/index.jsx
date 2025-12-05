@@ -1,9 +1,10 @@
+import React, { useEffect, useState } from "react";
 import "./style.css";
-import { Container } from "react-bootstrap";
 import { Carousel } from 'antd';
 import { Image } from 'antd';
 import { SvgComponent } from "../../Components";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { Container, Button } from "react-bootstrap";
 
 //Furry Character
 import furryCharacter1img1 from "../../Assets/3DModel/Furry/character1img1.png";
@@ -58,8 +59,6 @@ import humanCharacter8img1 from "../../Assets/3DModel/Human/character8img1.png";
 import humanCharacter8img2 from "../../Assets/3DModel/Human/character8img2.png";
 import humanCharacter9img1 from "../../Assets/3DModel/Human/character9img1.png";
 import humanCharacter9img2 from "../../Assets/3DModel/Human/character9img2.png";
-import humanCharacter10img1 from "../../Assets/3DModel/Human/character10img1.png";
-import humanCharacter10img2 from "../../Assets/3DModel/Human/character10img2.png";
 import humanCharacter11img1 from "../../Assets/3DModel/Human/character11img1.png";
 import humanCharacter11img2 from "../../Assets/3DModel/Human/character11img2.png";
 import humanCharacter12img1 from "../../Assets/3DModel/Human/character12img1.png";
@@ -78,6 +77,20 @@ import humanCharacter17vid2 from "../../Assets/3DModel/Human/character17img2.mp4
 import humanCharacter18img1 from "../../Assets/3DModel/Human/character18img1.png";
 import humanCharacter18img2 from "../../Assets/3DModel/Human/character18img2.png";
 import humanCharacter18img3 from "../../Assets/3DModel/Human/character18img3.png";
+import humanCharacter19img1 from "../../Assets/3DModel/Human/character19img1.png";
+import humanCharacter19img2 from "../../Assets/3DModel/Human/character19img2.png";
+import humanCharacter19img3 from "../../Assets/3DModel/Human/character19img3.png";
+import humanCharacter19vid1 from "../../Assets/3DModel/Human/character19img4.mp4";
+import humanCharacter20img1 from "../../Assets/3DModel/Human/character20img1.png";
+import humanCharacter20img2 from "../../Assets/3DModel/Human/character20img2.png";
+import humanCharacter20img3 from "../../Assets/3DModel/Human/character20img3.png";
+import humanCharacter20vid1 from "../../Assets/3DModel/Human/character20img4.mp4";
+import humanCharacter21img1 from "../../Assets/3DModel/Human/character21img1.png";
+import humanCharacter21img2 from "../../Assets/3DModel/Human/character21img2.png";
+import humanCharacter21img3 from "../../Assets/3DModel/Human/character21img3.png";
+import humanCharacter22img1 from "../../Assets/3DModel/Human/character22img1.png";
+import humanCharacter22img2 from "../../Assets/3DModel/Human/character22img2.png";
+import humanCharacter22img3 from "../../Assets/3DModel/Human/character22img3.png";
 
 const data3d = {
     furry: {
@@ -103,7 +116,7 @@ const data3d = {
         character7: [humanCharacter7img1, humanCharacter7img2],
         character8: [humanCharacter8img1, humanCharacter8img2],
         character9: [humanCharacter9img1, humanCharacter9img2],
-        character10: [humanCharacter10img1, humanCharacter10img2],
+        // character10: [humanCharacter10img1, humanCharacter10img2],
         character11: [humanCharacter11img1, humanCharacter11img2],
         character12: [humanCharacter12img1, humanCharacter12img2],
         character13: [humanCharacter13img1, humanCharacter13img2],
@@ -112,6 +125,10 @@ const data3d = {
         character16: [humanCharacter16img1, humanCharacter16img2, humanCharacter16img3],
         character17: [humanCharacter17img1, { video: [humanCharacter17vid2] }],
         character18: [humanCharacter18img1, humanCharacter18img2, humanCharacter18img3],
+        character19: [humanCharacter19img1, humanCharacter19img2, humanCharacter19img3, { video: [humanCharacter19vid1] }],
+        character20: [humanCharacter20img1, humanCharacter20img2, humanCharacter20img3, { video: [humanCharacter20vid1] }],
+        character21: [humanCharacter21img1, humanCharacter21img2, humanCharacter21img3],
+        character22: [humanCharacter22img1, humanCharacter22img2, humanCharacter22img3],
     }
 };
 
@@ -127,143 +144,103 @@ const CustomNextArrow = ({ onClick }) => (
     </div>
 );
 
+const CharacterCarousel = ({ assets, windowWidth }) => (
+    <Carousel
+        arrows
+        prevArrow={<CustomPrevArrow />}
+        nextArrow={<CustomNextArrow />}
+        infinite
+        autoplay
+        autoplaySpeed={6000}
+        effect={"scrollx"}
+        className="main-carousel"
+    >
+        {assets.map((item, index) =>
+            item.video ? (
+                item.video.map((src, i) => (
+                    <div className="carousel-div" key={`video-${index}-${i}`}>
+                        <video
+                            width={windowWidth < 430 ? 300 : 350}
+                            height={windowWidth < 430 ? 350 : 400}
+                            muted
+                            autoPlay
+                            loop
+                            style={{ objectFit: "cover" }}
+                        >
+                            <source src={src} type="video/mp4" />
+                        </video>
+                    </div>
+                ))
+            ) : (
+                <div className="carousel-div" key={`img-${index}`}>
+                    <Image
+                        width={windowWidth < 430 ? 300 : 350}
+                        height={windowWidth < 430 ? 350 : 400}
+                        src={item}
+                        alt="Character"
+                    />
+                </div>
+            )
+        )}
+    </Carousel>
+);
+
 const Avatar = ({ windowWidth }) => {
+    const [increaseBy, setIncreaseBy] = useState(windowWidth <= 430 ? 6 : 10);
+
+    useEffect(() => {
+        setIncreaseBy(windowWidth <= 430 ? 6 : 10)
+    }, [windowWidth])
+
+    const [humanCount, setHumanCount] = useState(increaseBy);
+    const [furryCount, setFurryCount] = useState(increaseBy);
+
+    const renderCategory = (title, list, count, setCount) => (
+        <>
+            <h2 data-aos="fade-left" data-aos-duration={600}>{title}</h2>
+
+            <Container className="img-container">
+                {Object.entries(list)
+                    .slice(0, count)
+                    .map(([key, value]) => (
+                        <div data-aos="zoom-in" className="img-div" key={key}>
+                            <CharacterCarousel assets={value} windowWidth={windowWidth} />
+                        </div>
+                    ))}
+            </Container>
+
+            <div style={{ textAlign: "center" }}>
+                {count < Object.keys(list).length ? (
+                    <div className="load-more-btn-wrapper">
+                        <button className="load-more-btn" onClick={() => setCount(prev => prev + increaseBy)}>
+                            Load More
+                        </button>
+                    </div>
+                ) : (
+                    <div className="load-more-btn-wrapper">
+                        <button className="load-more-btn" onClick={() => setCount(prev => prev + increaseBy)}>
+                            Show Less
+                        </button>
+                    </div>
+                )}
+            </div>
+        </>
+    );
+
     return (
-        <div className="main-img-div" id='3DModel'>
+        <div className="main-img-div" id="3DModel">
             <h1>
-                <p data-aos="fade-right" data-aos-duration={600} >
-                    3D Model
-                </p>
+                <p data-aos="fade-right" data-aos-duration={600}>3D Model</p>
                 <SvgComponent />
             </h1>
-            <h2 data-aos="fade-left" data-aos-duration={600} >
-                Human
-            </h2>
-            <Container className="img-container">
-                {
-                    data3d && Object.entries(data3d.human).map(([key, value]) => {
-                        return (
-                            <div data-aos="zoom-in" className="img-div" key={key}>
-                                <Carousel
-                                    arrows
-                                    prevArrow={<CustomPrevArrow />}
-                                    nextArrow={<CustomNextArrow />}
-                                    infinite={true}
-                                    autoplay={true}
-                                    effect={'scrollx'}
-                                    // fade={true}
-                                    autoplaySpeed={10000}
-                                    className="main-carousel"
-                                >
-                                    {
-                                        value.map((v, i) => {
-                                            if (v.video) {
-                                                return (
-                                                    <>
-                                                        {
-                                                            v.video.map((v, i) => {
-                                                                return (
-                                                                    <div className='carousel-div' key={i}>
-                                                                        <video
-                                                                            width={windowWidth < 430 ? 300 : 350}
-                                                                            height={windowWidth < 430 ? 350 : 400}
-                                                                            muted
-                                                                            autoPlay
-                                                                            loop
-                                                                            style={{ objectFit: 'cover' }}
-                                                                        >
-                                                                            <source style={{ width: '100%', height: '100%' }} src={v} type="video/mp4" />
-                                                                        </video>
-                                                                    </div>
-                                                                )
-                                                            })
-                                                        }
-                                                    </>
-                                                )
-                                            } else {
-                                                return (
-                                                    <div className='carousel-div' key={i}>
-                                                        <Image
-                                                            width={windowWidth < 430 ? 300 : 350}
-                                                            height={windowWidth < 430 ? 350 : 400}
-                                                            src={v}
-                                                            alt="Image"
-                                                        />
-                                                    </div>
-                                                )
-                                            }
-                                        })}
-                                </Carousel>
-                            </div>
-                        )
-                    })
-                }
-            </Container>
-            <div className='division-line' ></div>
-            <h2 data-aos="fade-left" data-aos-duration={600} >
-                Furry
-            </h2>
-            <Container className="img-container">
-                {
-                    data3d && Object.entries(data3d.furry).map(([key, value]) => {
-                        return (
-                            <div data-aos="zoom-in" className="img-div" key={key}>
-                                <Carousel
-                                    arrows
-                                    prevArrow={<CustomPrevArrow />}
-                                    nextArrow={<CustomNextArrow />}
-                                    infinite={true}
-                                    autoplay={true}
-                                    fade={true}
-                                    autoplaySpeed={10000}
-                                    className="main-carousel"
-                                >
-                                    {
-                                        value.map((v, i) => {
-                                            if (v.video) {
-                                                return (
-                                                    <>
-                                                        {
-                                                            v.video.map((v, i) => {
-                                                                return (
-                                                                    <div className='carousel-div' key={i}>
-                                                                        <video
-                                                                            width={windowWidth < 430 ? 300 : 350}
-                                                                            height={windowWidth < 430 ? 350 : 400}
-                                                                            muted
-                                                                            autoPlay
-                                                                            loop
-                                                                            style={{ objectFit: 'cover' }}
-                                                                        >
-                                                                            <source style={{ width: '100%', height: '100%' }} src={v} type="video/mp4" />
-                                                                        </video>
-                                                                    </div>
-                                                                )
-                                                            })
-                                                        }
-                                                    </>
-                                                )
-                                            } else {
-                                                return (
-                                                    <div className='carousel-div' key={i}>
-                                                        <Image
-                                                            width={windowWidth < 430 ? 300 : 350}
-                                                            height={windowWidth < 430 ? 350 : 400}
-                                                            src={v}
-                                                            alt="Image"
-                                                        />
-                                                    </div>
-                                                )
-                                            }
-                                        })}
-                                </Carousel>
-                            </div>
-                        )
-                    })
-                }
-            </Container>
-        </div >
-    )
-}
+
+            {renderCategory("Human", data3d.human, humanCount, setHumanCount)}
+
+            <div className="division-line"></div>
+
+            {renderCategory("Furry", data3d.furry, furryCount, setFurryCount)}
+        </div>
+    );
+};
 
 export default Avatar;
