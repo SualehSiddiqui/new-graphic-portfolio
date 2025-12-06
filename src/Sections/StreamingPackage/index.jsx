@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "./style.css";
 import { Container } from "react-bootstrap";
 import { Image } from 'antd';
 import { SvgComponent } from "../../Components";
 
-// Set1 - video
+// ⬇️ Your same imports (don’t remove)
 import overlay1 from '../../Assets/StreamPackage/set1img1.mp4';
 import logo1 from '../../Assets/StreamPackage/set1img2.png';
 import screen1 from '../../Assets/StreamPackage/set1img3.png';
 import banner1 from '../../Assets/StreamPackage/set1img4.png';
 
-// Set2 - video
 import overlay2 from '../../Assets/StreamPackage/set2img1.mp4';
 import logo2 from '../../Assets/StreamPackage/set2img2.png';
 import screen2 from '../../Assets/StreamPackage/set2img3.png';
@@ -41,12 +40,20 @@ import overlay23 from '../../Assets/StreamPackage/set23img1.mp4';
 import overlay24 from '../../Assets/StreamPackage/set24img1.mp4';
 import overlay25 from '../../Assets/StreamPackage/set25img1.mp4';
 import overlay26 from '../../Assets/StreamPackage/set26img1.mp4';
+import overlay27 from '../../Assets/StreamPackage/set27img1.png';
+import overlay28 from '../../Assets/StreamPackage/set28img1.png';
+import overlay29 from '../../Assets/StreamPackage/set29img1.png';
+import overlay30 from '../../Assets/StreamPackage/set30img1.png';
+import overlay31 from '../../Assets/StreamPackage/set31img1.png';
+import overlay32 from '../../Assets/StreamPackage/set32img1.png';
 
+// ===================== DATA =====================
 const dataStreamingPackage = {
   image: [
     overlay4, overlay5, overlay6, overlay7, overlay8, overlay9,
     overlay10, overlay11, overlay17, overlay18, overlay19, overlay20,
-    overlay21
+    overlay21, overlay27, overlay28, overlay29, overlay30, overlay31,
+    overlay32
   ],
   video: [
     overlay12, overlay13, overlay14, overlay15, overlay16,
@@ -55,126 +62,101 @@ const dataStreamingPackage = {
 };
 
 const StreamingPackage = ({ windowWidth }) => {
+
+  const [increaseBy, setIncreaseBy] = useState(windowWidth <= 430 ? 6 : 10);
+  const [visibleCount, setVisibleCount] = useState(0);
+
+  useEffect(() => {
+    const newVal = windowWidth <= 430 ? 6 : 10;
+    setIncreaseBy(newVal);
+    setVisibleCount(newVal);
+  }, [windowWidth]);
+
+  // 📌 Combine both image + video into a single sequence
+  const allItems = [
+    ...dataStreamingPackage.image.map(src => ({ type: "image", src })),
+    ...dataStreamingPackage.video.map(src => ({ type: "video", src }))
+  ];
+
+  const itemsToShow = allItems.slice(0, visibleCount);
+
   return (
     <div className="main-img-div" id='streamingPackage'>
       <h1>
-        <p data-aos="fade-right" data-aos-duration={600} >
-          Streaming Package
-        </p>
+        <p data-aos="fade-right" data-aos-duration={600}>Streaming Package</p>
         <SvgComponent />
       </h1>
+
       <Container className="img-container">
+
+        {/* ================= FIRST FIXED 3 SETS ================= */}
         <div data-aos="zoom-in" className="logo-img-div">
-          <Image
-            src={logo1}
-            alt="Images"
-            width={300}
-            height={300}
-          />
+          <Image src={logo1} alt="Images" width={300} height={300} />
         </div>
+
         <div data-aos="zoom-in" className="art-room-div">
-          <video
-            width={windowWidth < 430 ? 300 : 400}
-            height={200}
-            muted
-            autoPlay
-            loop
-            style={{ objectFit: 'cover' }}
-          >
-            <source style={{ width: '100%', height: '100%' }} src={overlay1} type="video/mp4" />
+          <video width={windowWidth < 430 ? 300 : 400} height={200} muted autoPlay loop style={{ objectFit: 'cover' }}>
+            <source src={overlay1} type="video/mp4" />
           </video>
         </div>
+
         <div data-aos="zoom-in" className='character-art-portrait'>
-          <Image
-            width={windowWidth < 430 ? 250 : 300}
-            height={windowWidth < 430 ? 300 : 400}
-            src={screen1}
-            alt="Image"
-          />
+          <Image width={200} height={windowWidth < 430 ? 250 : 300} src={screen1} alt="Image" />
         </div>
+
         <div data-aos="zoom-in" className="art-room-div">
-          <Image
-            src={banner1}
-            alt="Images"
-            width={windowWidth < 430 ? 300 : 400}
-            height={200}
-          />
+          <Image src={banner1} alt="Images" width={windowWidth < 430 ? 300 : 400} height={200} />
         </div>
 
         <div data-aos="zoom-in" className="logo-img-div">
-          <Image
-            src={logo2}
-            alt="Images"
-            width={300}
-            height={300}
-          />
+          <Image src={logo2} alt="Images" width={300} height={300} />
         </div>
+
         <div data-aos="zoom-in" className="art-room-div">
-          <video
-            width={windowWidth < 430 ? 300 : 400}
-            height={200}
-            muted
-            autoPlay
-            loop
-            style={{ objectFit: 'cover' }}
-          >
-            <source style={{ width: '100%', height: '100%' }} src={overlay2} type="video/mp4" />
+          <video width={windowWidth < 430 ? 300 : 400} height={200} muted autoPlay loop style={{ objectFit: 'cover' }}>
+            <source src={overlay2} type="video/mp4" />
           </video>
         </div>
+
         <div data-aos="zoom-in" className="art-room-div">
-          <Image
-            src={screen2}
-            alt="Images"
-            width={windowWidth < 430 ? 300 : 400}
-            height={200}
-          />
+          <Image src={screen2} alt="Images" width={windowWidth < 430 ? 300 : 400} height={200} />
         </div>
+
         <div data-aos="zoom-in" className="art-room-div">
-          <Image
-            src={banner2}
-            alt="Images"
-            width={windowWidth < 430 ? 300 : 400}
-            height={200}
-          />
+          <Image src={banner2} alt="Images" width={windowWidth < 430 ? 300 : 400} height={200} />
         </div>
 
         <div data-aos="zoom-in" className="logo-img-div">
-          <Image
-            src={logo3}
-            alt="Images"
-            width={300}
-            height={300}
-          />
+          <Image src={logo3} alt="Images" width={300} height={300} />
         </div>
-        {dataStreamingPackage.image.map(image => (
-          <div data-aos="zoom-in" className="art-room-div" key={image}>
-            <Image
-              src={image}
-              alt="Images"
-              width={windowWidth < 430 ? 300 : 400}
-              height={200}
-            />
-          </div>
-        ))}
 
-        {dataStreamingPackage.video.map(video => (
-          <div data-aos="zoom-in" className="art-room-div" key={video}>
-            <video
-              width={windowWidth < 430 ? 300 : 400}
-              height={200}
-              muted
-              autoPlay
-              loop
-              style={{ objectFit: 'cover' }}
-            >
-              <source src={video} type="video/mp4" />
-            </video>
-          </div>
-        ))}
+        {/* ================= LOAD MORE SECTION ================= */}
+        {itemsToShow.map((item, index) =>
+          item.type === "image" ? (
+            <div data-aos="zoom-in" className="art-room-div" key={index}>
+              <Image src={item.src} alt="Images" width={windowWidth < 430 ? 300 : 400} height={200} />
+            </div>
+          ) : (
+            <div data-aos="zoom-in" className="art-room-div" key={index}>
+              <video width={windowWidth < 430 ? 300 : 400} height={200} muted autoPlay loop style={{ objectFit: 'cover' }}>
+                <source src={item.src} type="video/mp4" />
+              </video>
+            </div>
+          )
+        )}
+
+        {/* 📌 LOAD MORE BUTTON */}
+        <div className="load-more-btn-wrapper">
+          {visibleCount < allItems.length ? (
+            <button className="load-more-btn" onClick={() => setVisibleCount(prev => prev + increaseBy)}>Load More</button>
+          ) : (
+            <button className="load-more-btn" onClick={() => setVisibleCount(0)}>Show Less</button>
+          )}
+        </div>
 
       </Container>
     </div>
-  )
-}
+  );
+};
 
 export default StreamingPackage;

@@ -73,7 +73,7 @@ const CharacterArt = ({ windowWidth }) => {
         ...dataCharacterArt.landscape.map(img => ({ type: "landscape", src: img }))
     ];
 
-    const [increaseBy, setIncreaseBy] = useState( windowWidth <= 430 ? 6 : 10);
+    const [increaseBy, setIncreaseBy] = useState(windowWidth <= 430 ? 6 : 10);
 
     useEffect(() => {
         setIncreaseBy(windowWidth <= 430 ? 6 : 10)
@@ -104,8 +104,8 @@ const CharacterArt = ({ windowWidth }) => {
                         >
                             <Image
                                 width={item.type === "portrait"
-                                    ? (windowWidth < 430 ? 200 : 200)
-                                    : (windowWidth < 430 ? 300 : 350)
+                                    ? 200
+                                    : 300
                                 }
                                 height={item.type === "portrait"
                                     ? (windowWidth < 430 ? 250 : 300)

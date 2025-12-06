@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./style.css";
 import { Container } from "react-bootstrap";
 import { Image } from 'antd';
@@ -29,84 +29,86 @@ import artImg19 from '../../Assets/ArtRoom/set19img1.png';
 import artImg20 from '../../Assets/ArtRoom/set20img1.png';
 import artImg21 from '../../Assets/ArtRoom/set21img1.png';
 
-const dataArtRoom = {
-    set1: { video: [artVid1] },
-    set2: { video: [artVid2] },
-    set3: { image: [artImg3] },
-    set4: { video: [artVid4] },
-    set5: { video: [artVid5] },
-    set6: { video: [artVid6] },
-    set7: { image: [artImg7] },
-    set8: { video: [artVid8] },
-    set9: { video: [artVid9] },
-    set10: { image: [artImg10] },
-    set11: { image: [artImg11] },
-    set12: { image: [artImg12] },
-    set13: { image: [artImg13] },
-    set14: { image: [artImg14] },
-    set15: { image: [artImg15] },
-    set16: { image: [artImg16] },
-    set17: { image: [artImg17] },
-    set18: { image: [artImg18] },
-    set19: { image: [artImg19] },
-    set20: { image: [artImg20] },
-    set21: { image: [artImg21] },
-};
+const dataArtRoom = [
+    { type: "video", src: artVid1 },
+    { type: "video", src: artVid2 },
+    { type: "image", src: artImg3 },
+    { type: "video", src: artVid4 },
+    { type: "video", src: artVid5 },
+    { type: "video", src: artVid6 },
+    { type: "image", src: artImg7 },
+    { type: "video", src: artVid8 },
+    { type: "video", src: artVid9 },
+    { type: "image", src: artImg10 },
+    { type: "image", src: artImg11 },
+    { type: "image", src: artImg12 },
+    { type: "image", src: artImg13 },
+    { type: "image", src: artImg14 },
+    { type: "image", src: artImg15 },
+    { type: "image", src: artImg16 },
+    { type: "image", src: artImg17 },
+    { type: "image", src: artImg18 },
+    { type: "image", src: artImg19 },
+    { type: "image", src: artImg20 },
+    { type: "image", src: artImg21 },
+];
 
 const ArtRoom = ({ windowWidth }) => {
+
+    const [visible, setVisible] = useState(6); // initially show 6
+    const total = dataArtRoom.length;
+
+    const loadMore = () => setVisible(prev => prev + 6);
+    const showLess = () => setVisible(6);
 
     return (
         <div className="main-img-div" id='artRoom'>
             <h1>
-                <p data-aos="fade-right" data-aos-duration={600} >
+                <p data-aos="fade-right" data-aos-duration={600}>
                     Art Room
                 </p>
                 <SvgComponent />
             </h1>
-            <Container className="img-container">
-                {
-                    dataArtRoom && Object.entries(dataArtRoom).map(([key, value]) => {
-                        return (
-                            <>
-                                {
-                                    value.image && value.image.map((v, i) => {
-                                        return (
-                                            <div data-aos="zoom-in" className="art-room-div" key={i}>
-                                                <Image
-                                                    src={v}
-                                                    alt="Images"
-                                                    width={windowWidth < 430 ? 300 : 400}
-                                                    height={200}
-                                                />
-                                            </div>
-                                        )
-                                    })
-                                }
-                                {
-                                    value.video && value.video.map((v, i) => {
-                                        return (
-                                            <div data-aos="zoom-in" className="art-room-div" key={i}>
-                                                <video
-                                                    width={windowWidth < 430 ? 300 : 400}
-                                                    height={200}
-                                                    muted
-                                                    autoPlay
-                                                    loop
-                                                    style={{ objectFit: 'cover' }}
-                                                >
-                                                    <source style={{ width: '100%', height: '100%' }} src={v} type="video/mp4" />
-                                                </video>
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </>
-                        )
-                    })
-                }
-            </Container>
-        </div>
-    )
-}
 
-export default ArtRoom
+            <Container className="img-container">
+                {dataArtRoom.slice(0, visible).map((item, i) => (
+                    <div data-aos="zoom-in" className="character-art-landscape" key={i}>
+                        {item.type === "image" ? (
+                            <Image
+                                src={item.src}
+                                alt="ArtRoom IMG"
+                                width={windowWidth < 430 ? 300 : 350}
+                                height={200}
+                            />
+                        ) : (
+                            <video
+                                width={windowWidth < 430 ? 300 : 350}
+                                height={200}
+                                muted
+                                autoPlay
+                                loop
+                                style={{ objectFit: "cover" }}
+                            >
+                                <source src={item.src} type="video/mp4" />
+                            </video>
+                        )}
+                    </div>
+                ))}
+            </Container>
+
+            <div className="load-more-btn-wrapper">
+                {visible < total ? (
+                    <button className="load-more-btn" onClick={loadMore}>
+                        Load More
+                    </button>
+                ) : (
+                    <button className="load-more-btn" onClick={showLess}>
+                        Show Less
+                    </button>
+                )}
+            </div>
+        </div>
+    );
+};
+
+export default ArtRoom;

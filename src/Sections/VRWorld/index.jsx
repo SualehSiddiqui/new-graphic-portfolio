@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container } from "react-bootstrap";
 import { Image } from 'antd';
 import { SvgComponent } from "../../Components";
@@ -19,30 +19,52 @@ const dataVR = {
 };
 
 const VrWorld = ({ windowWidth }) => {
+
+    const [visible, setVisible] = useState(4); // initially show 4 images
+    const total = dataVR.images.length;
+
+    const handleLoadMore = () => {
+        setVisible(prev => prev + 4); // load 4 more dynamically
+    };
+
+    const handleShowLess = () => {
+        setVisible(4); // reset to 4
+    };
+
     return (
         <div className="main-img-div" id='vrWorld'>
             <h1>
-                <p data-aos="fade-right" data-aos-duration={600} >
+                <p data-aos="fade-right" data-aos-duration={600}>
                     VR World
                 </p>
                 <SvgComponent />
             </h1>
+
             <Container className="img-container">
                 {
-                    dataVR && dataVR.images.map((v, i) => (
-                        <div data-aos="zoom-in" className="art-room-div" key={i}>
+                    dataVR.images.slice(0, visible).map((v, i) => (
+                        <div data-aos="zoom-in" className="character-art-landscape" key={i}>
                             <Image
                                 src={v}
                                 alt="Images"
-                                width={windowWidth < 430 ? 300 : 400}
+                                width={windowWidth < 430 ? 300 : 350}
                                 height={200}
                             />
                         </div>
                     ))
                 }
             </Container>
+
+            {/* Load More / Show Less Button */}
+            <div className="load-more-btn-wrapper">
+                {visible < total ? (
+                    <button className="load-more-btn" onClick={handleLoadMore}>Load More</button>
+                ) : (
+                    <button className="load-more-btn" onClick={handleShowLess}>Show Less</button>
+                )}
+            </div>
         </div>
     )
 }
 
-export default VrWorld
+export default VrWorld;

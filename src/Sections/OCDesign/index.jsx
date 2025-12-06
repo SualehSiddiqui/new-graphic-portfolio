@@ -35,7 +35,7 @@ const OCDesign = ({ windowWidth }) => {
                             <>
                                 <div data-aos="zoom-in" className='character-art-portrait' key={key + 'portrait'}>
                                     <Image
-                                        width={windowWidth < 430 ? 200 : 200}
+                                        width={200}
                                         height={windowWidth < 430 ? 250 : 300}
                                         src={value}
                                         alt="Image"

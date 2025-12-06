@@ -28,7 +28,7 @@ const DNDReferenceSheet = ({ windowWidth }) => {
                         return value.map(imageUrl => (
                             <div data-aos="zoom-in" className='character-art-portrait' key={key}>
                                 <Image
-                                    width={windowWidth < 430 ? 200 : 200}
+                                    width={200}
                                     height={windowWidth < 430 ? 250 : 300}
                                     src={imageUrl}
                                     alt="Image"
