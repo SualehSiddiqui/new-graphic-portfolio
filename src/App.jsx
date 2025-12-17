@@ -3,7 +3,7 @@ import "./App.css";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { useEffect, useState } from "react";
-import { Footer, Hero } from "./Components";
+import { AntiScreenshot, Footer, Hero } from "./Components";
 import {
   Avatar3d, Avatar2d, CharacterArt, ReferenceSheet, VrWorld, ArtRoom,
   DND, DNDGroupArtWork, DNDReferenceSheet, PrintableModel, LogoAndBanner,
@@ -27,12 +27,17 @@ const Portfolio = () => {
     window.addEventListener('resize', handleResize);
   }, []);
 
-  const handleContextMenu = (e) => {
-    e.preventDefault();
-  };
+  // document.addEventListener("keydown", e => {
+  //   const blockedKeys = ["PrintScreen", "F12"];
+  //   if (blockedKeys.includes(e.key) || (e.ctrlKey && ["c", "v", "u"].includes(e.key.toLowerCase()))) {
+  //     e.preventDefault();
+  //   }
+  // });
+
 
   return (
-    <div onContextMenu={handleContextMenu}>
+    <div>
+      <AntiScreenshot />
       <Hero />
       <About />
       <CharacterArt windowWidth={windowWidth} />

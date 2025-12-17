@@ -49,7 +49,7 @@ const RenderImages = ({ title, data, count, setCount, windowWidth, type, increas
                     <Image
                         src={src}
                         alt={`${title} reference`}
-                        width={type === "landscape" ? (windowWidth < 430 ? 300 : 350) : 200}
+                        width={type === "landscape" ? 300 : 200}
                         height={type === "landscape" ? 200 : (windowWidth < 430 ? 250 : 300)}
                     />
                 </div>

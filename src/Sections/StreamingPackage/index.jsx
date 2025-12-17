@@ -94,8 +94,8 @@ const StreamingPackage = ({ windowWidth }) => {
           <Image src={logo1} alt="Images" width={300} height={300} />
         </div>
 
-        <div data-aos="zoom-in" className="art-room-div">
-          <video width={windowWidth < 430 ? 300 : 400} height={200} muted autoPlay loop style={{ objectFit: 'cover' }}>
+        <div data-aos="zoom-in" className="character-art-landscape">
+          <video width={300} height={200} muted autoPlay loop style={{ objectFit: 'cover' }}>
             <source src={overlay1} type="video/mp4" />
           </video>
         </div>
@@ -104,26 +104,26 @@ const StreamingPackage = ({ windowWidth }) => {
           <Image width={200} height={windowWidth < 430 ? 250 : 300} src={screen1} alt="Image" />
         </div>
 
-        <div data-aos="zoom-in" className="art-room-div">
-          <Image src={banner1} alt="Images" width={windowWidth < 430 ? 300 : 400} height={200} />
+        <div data-aos="zoom-in" className="character-art-landscape">
+          <Image src={banner1} alt="Images" width={300} height={200} />
         </div>
 
         <div data-aos="zoom-in" className="logo-img-div">
           <Image src={logo2} alt="Images" width={300} height={300} />
         </div>
 
-        <div data-aos="zoom-in" className="art-room-div">
-          <video width={windowWidth < 430 ? 300 : 400} height={200} muted autoPlay loop style={{ objectFit: 'cover' }}>
+        <div data-aos="zoom-in" className="character-art-landscape">
+          <video width={300} height={200} muted autoPlay loop style={{ objectFit: 'cover' }}>
             <source src={overlay2} type="video/mp4" />
           </video>
         </div>
 
-        <div data-aos="zoom-in" className="art-room-div">
-          <Image src={screen2} alt="Images" width={windowWidth < 430 ? 300 : 400} height={200} />
+        <div data-aos="zoom-in" className="character-art-landscape">
+          <Image src={screen2} alt="Images" width={300} height={200} />
         </div>
 
-        <div data-aos="zoom-in" className="art-room-div">
-          <Image src={banner2} alt="Images" width={windowWidth < 430 ? 300 : 400} height={200} />
+        <div data-aos="zoom-in" className="character-art-landscape">
+          <Image src={banner2} alt="Images" width={300} height={200} />
         </div>
 
         <div data-aos="zoom-in" className="logo-img-div">
@@ -133,12 +133,12 @@ const StreamingPackage = ({ windowWidth }) => {
         {/* ================= LOAD MORE SECTION ================= */}
         {itemsToShow.map((item, index) =>
           item.type === "image" ? (
-            <div data-aos="zoom-in" className="art-room-div" key={index}>
-              <Image src={item.src} alt="Images" width={windowWidth < 430 ? 300 : 400} height={200} />
+            <div data-aos="zoom-in" className="character-art-landscape" key={index}>
+              <Image src={item.src} alt="Images" width={300} height={200} />
             </div>
           ) : (
-            <div data-aos="zoom-in" className="art-room-div" key={index}>
-              <video width={windowWidth < 430 ? 300 : 400} height={200} muted autoPlay loop style={{ objectFit: 'cover' }}>
+            <div data-aos="zoom-in" className="character-art-landscape" key={index}>
+              <video width={300} height={200} muted autoPlay loop style={{ objectFit: 'cover' }}>
                 <source src={item.src} type="video/mp4" />
               </video>
             </div>

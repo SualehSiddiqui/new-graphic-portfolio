@@ -24,7 +24,7 @@ const About = () => {
                             <IoMail />
                         </span>
                         <span>
-                            demo@gmail.com
+                            info@artistryworlds.com
                         </span>
                     </a>
                     <a href='https://x.com/ArtistryModel' target='_blank' className='mt-1 about-social-icons'>

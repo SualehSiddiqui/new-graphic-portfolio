@@ -80,23 +80,24 @@
 
 @media only screen and (max-width:576px) {
     .main-hero-div {
-        height: 40vh;
+        height: 55vh;
+        background-position: center;
     }
 
     .hero-img{
-        width: 40%;
+        width: 30%;
     }
 
     .hero-text{
-        width: 60%;
+        width: 70%;
     }
 
     .hero-text>h1 {
-        font-size: 18px;
+        font-size: 14px;
     }
 
     .hero-text>p {
-        font-size: 14px;
+        font-size: 10px;
     }
 
     .hero-text>button {
