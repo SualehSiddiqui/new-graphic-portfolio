@@ -1,46 +1,49 @@
-import { useState } from 'react'
+import { useEffect, useState } from "react";
 import "./style.css";
 
 function AccessDeniedUi() {
     return (
-        <div className='main-access-div'>
-            <div className='sub-access-div'>
+        <div className="main-access-div">
+            <div className="sub-access-div">
                 <h1>Access Denied</h1>
             </div>
         </div>
-    )
+    );
 }
 
 function RestrictUser({ children }) {
-    const [accessGranted, setAccessGranted] = useState(true)
-    function block_blacklist_countries() {
-        // Blacklist countries
-        const blacklist_countries = [
-            "PK", // Pakistan
-        ]
+    const [accessGranted, setAccessGranted] = useState(null); // null = loading
 
-        // Detecting the users country
-        function get_country_code(api_url) {
-            fetch(api_url, { method: 'GET' })
-                .then(response => response.json()) // Getting ip info as json
-                .then(result => {
-                    console.log('Country Code:', result.countryCode);
-                    if (blacklist_countries.includes(result.countryCode)) { // If my ip country code is in blacklist
-                        console.log('Access Denied')
-                        setAccessGranted(false)
-                    }
-                })
-                .catch(error => console.log('error', error))
+    useEffect(() => {
+        const blacklistCountries = ["PK"]; // Pakistan
+
+        async function checkCountry() {
+            try {
+                const response = await fetch("https://ipwho.is/");
+                const result = await response.json();
+
+                console.log("Country Code:", result.country_code);
+
+                if (blacklistCountries.includes(result.country_code)) {
+                    setAccessGranted(false);
+                } else {
+                    setAccessGranted(true);
+                }
+            } catch (error) {
+                console.error("IP check failed:", error);
+                setAccessGranted(true); // fail open (optional)
+            }
         }
 
-        // Getting country code from third party api
-        get_country_code("http://ip-api.com/json")
+        checkCountry();
+    }, []);
+
+    // Loading state (prevents content flash)
+    if (accessGranted === null) {
+        return null; // or a spinner
     }
-    block_blacklist_countries();
-
-
 
     return accessGranted ? children : <AccessDeniedUi />;
 }
 
-export default RestrictUser
+export default RestrictUser;
