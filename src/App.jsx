@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./App.css";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { useEffect, useState } from "react";
@@ -26,14 +25,6 @@ const Portfolio = () => {
     // Add the event listener when the component mounts
     window.addEventListener('resize', handleResize);
   }, []);
-
-  // document.addEventListener("keydown", e => {
-  //   const blockedKeys = ["PrintScreen", "F12"];
-  //   if (blockedKeys.includes(e.key) || (e.ctrlKey && ["c", "v", "u"].includes(e.key.toLowerCase()))) {
-  //     e.preventDefault();
-  //   }
-  // });
-
 
   return (
     <div>

@@ -24,7 +24,8 @@ function RestrictUser({ children }) {
             fetch(api_url, { method: 'GET' })
                 .then(response => response.json()) // Getting ip info as json
                 .then(result => {
-                    if (blacklist_countries.includes(result.country)) { // If my ip country code is in blacklist
+                    console.log('Country Code:', result.countryCode);
+                    if (blacklist_countries.includes(result.countryCode)) { // If my ip country code is in blacklist
                         console.log('Access Denied')
                         setAccessGranted(false)
                     }
@@ -33,7 +34,7 @@ function RestrictUser({ children }) {
         }
 
         // Getting country code from third party api
-        get_country_code("https://get.geojs.io/v1/ip/country.json")
+        get_country_code("http://ip-api.com/json")
     }
     block_blacklist_countries();
 
