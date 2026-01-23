@@ -28,7 +28,7 @@ const Portfolio = () => {
 
   return (
     <div>
-      <AntiScreenshot />
+      {/* <AntiScreenshot /> */}
       <Hero />
       <About />
       <CharacterArt windowWidth={windowWidth} />
