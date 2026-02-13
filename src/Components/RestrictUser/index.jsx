@@ -12,35 +12,31 @@ function AccessDeniedUi() {
 }
 
 function RestrictUser({ children }) {
-    const [accessGranted, setAccessGranted] = useState(null); // null = loading
+    const [accessGranted, setAccessGranted] = useState(null);
 
     useEffect(() => {
-        const blacklistCountries = ["PK"]; // Pakistan
+        const blacklistCountries = ["PK"];
 
         async function checkCountry() {
             try {
-                const response = await fetch("https://ipwho.is/");
+                const response = await fetch("https://api.ipwho.org/me?apiKey=" + import.meta.env.VITE_API_KEY);
                 const result = await response.json();
-
-                console.log("Country Code:", result.country_code);
-
-                if (blacklistCountries.includes(result.country_code)) {
+                if (blacklistCountries.includes(result.data.geoLocation.countryCode)) {
                     setAccessGranted(false);
                 } else {
                     setAccessGranted(true);
                 }
             } catch (error) {
                 console.error("IP check failed:", error);
-                setAccessGranted(true); // fail open (optional)
+                setAccessGranted(true);
             }
         }
 
         checkCountry();
     }, []);
 
-    // Loading state (prevents content flash)
     if (accessGranted === null) {
-        return null; // or a spinner
+        return null;
     }
 
     return accessGranted ? children : <AccessDeniedUi />;
