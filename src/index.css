@@ -18,3 +18,7 @@ body {
   --color-1: #0E0C16;
   --color-2: #7c568d;
 }
+
+html {
+  scroll-behavior: smooth;
+}

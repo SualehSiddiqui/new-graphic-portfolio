@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container } from "react-bootstrap";
 import { Image } from 'antd';
 import { SvgComponent } from "../../Components";

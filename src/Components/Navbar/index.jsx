@@ -36,7 +36,7 @@ const Navbar = () => {
                         <ul className="nav-links-div">
                             {navLink.map(navItem => (
                                 <li key={navItem.title}>
-                                    <a href={navItem.link} className="">
+                                    <a href={navItem.link}>
                                         {navItem.title}
                                     </a>
                                 </li>

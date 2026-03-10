@@ -6,7 +6,6 @@ const AntiScreenshot = () => {
     useEffect(() => {
         const handleKey = (e) => {
             navigator.clipboard.writeText("");
-            console.log("e",e.key)
 
             const blockedKeys = ["PrintScreen", "F12", "Shift", "Meta"];
 
